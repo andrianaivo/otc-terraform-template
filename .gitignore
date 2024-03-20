@@ -50,4 +50,6 @@ build
 /**/*.backup
 **/requirements.lock
 
-./my-secrets.sh
+# local development
+.envrc
+my-secrets.sh
