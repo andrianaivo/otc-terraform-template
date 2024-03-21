@@ -53,3 +53,4 @@ build
 # local development
 .envrc
 my-secrets.sh
+basic-auth*
