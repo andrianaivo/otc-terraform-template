@@ -16,6 +16,7 @@ resource "helm_release" "traefik" {
       ingressRoute = {
         rootDomain  = var.domain_name
         adminDomain = "admin.${var.domain_name}"
+        appDomain = "apps.${var.domain_name}"
       }
       traefik = {
         additionalArguments = [

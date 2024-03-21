@@ -77,6 +77,7 @@ module "public_dns" {
   a_records = {
     (var.domain_name) = [module.loadbalancer.elb_public_ip]
     admin             = [module.loadbalancer.elb_public_ip]
+    apps              = [module.loadbalancer.elb_public_ip]
   }
 }
 

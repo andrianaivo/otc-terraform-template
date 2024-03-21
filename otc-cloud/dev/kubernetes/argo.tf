@@ -25,6 +25,18 @@ resource "helm_release" "argocd" {
   values = [
     yamlencode({
       projects = {
+        app-charts = {
+          projectValues = {
+            # Set this to enable stage $STAGE-values.yaml
+            stage             = var.stage
+            appDomain         = var.domain_name
+            basicAuthPassword = random_password.basic_auth_password.result
+          }
+          git = {
+            password = var.git_token
+            repoUrl  = "https://github.com/apps4you/otc-app-charts.git"
+          }
+        }
         infrastructure-charts = {
           projectValues = {
             # Set this to enable stage $STAGE-values.yaml
